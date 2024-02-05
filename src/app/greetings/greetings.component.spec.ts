@@ -11,13 +11,25 @@ describe('GreetingsComponent', () => {
       declarations: [GreetingsComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(GreetingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
+  beforeEach(()=>{
+    fixture = TestBed.createComponent(GreetingsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display default message', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p.mensaje').textContent).toContain('Valor por defecto');
+  });
+
 });
